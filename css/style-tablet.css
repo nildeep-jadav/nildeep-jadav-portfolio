@@ -1,0 +1,144 @@
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    #bg {
+        top: 320px;
+        width: 100%;
+    }
+    /* Typography */
+    .headline-01 {
+        font-size: 39.67px;
+        line-height: calc(39.67px * 1.3);
+    }
+    .headline-02 {
+        font-size: 31.73px;
+        line-height: calc(31.73px * 1.3);
+    }
+    .headline-03 {
+        font-size: 25.39px;
+        line-height: calc(25.39px * 1.3);
+    }
+    .subtitle-01 {
+        font-size: 20.31px;
+        line-height: calc(20.31px * 1.3);
+    }
+    .paragraph-01 {
+        font-size: 16.25px;
+        line-height: calc(16.25px * 1.5);
+    }
+    .paragraph-02 {
+        font-size: 13px;
+        line-height: calc(14px * 1.5);
+    }
+    /* Typography Over */
+
+
+    /* Button */
+    .primary-btn {
+        min-width: 175px;
+        min-height: 45px;
+    }
+
+    .secondary-btn {
+        min-width: 175px;
+        min-height: 45px;
+    }
+    /* Button Over */
+   
+    #navbar {
+        padding: 12px 24px;
+    }
+    #nav-wrap {
+        width: 100%;
+    }
+    
+    .menu-button-container {
+        display: flex;
+      }
+      .menu {
+        position: absolute;
+        top: 0;
+        margin-top: 65.9px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        z-index: 8;
+      }
+      #menu-toggle ~ .menu li {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        transition: height 500ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      #menu-toggle:checked ~ .menu li {
+        border: 1px solid #333;
+        height: 2.5em;
+        padding: 0.5em;
+        transition: height 500ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .menu > li {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        color: var(--milk);
+        background-color: var(--dark-cerulean);
+      }
+      .menu > li:not(:last-child) {
+        border-bottom: 1px solid var(--maastricht-blue);
+      }
+    /* container */
+    #container {
+        width: 100%;
+        /* padding: 0 48px; */
+    }
+    /* container Over */
+    /* hero area */
+    #hero-area {
+        padding: 24px 24px;
+    }
+    
+    #hero-text {
+        margin-right: -25px;
+    }
+
+    #hero-area > [id^="nildeep-jadav"] {
+        height: 400px;
+        filter: drop-shadow(24px 24px 60px rgba(0, 9, 14, 0.12));
+    }
+    /* hero area over */
+
+    #skills p {
+        text-align: left;
+    }
+
+    /* #eatummy-wrapper, #snackify-wrapper, #betamg-wrapper, #triaayam-wrapper {
+        min-height: 50vh;
+    } */
+
+    #eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr {
+        position: absolute;
+        top: 24px;
+        gap: 24px;
+        z-index: 1;
+        width: calc(50% - 12px);
+    }
+
+    #down-arrow {
+        margin-top: -20px;
+        height: 50px;
+    }
+
+    #tools .col-flex img {
+        height: 65px;
+    }
+
+    #toolbox, #skillset {
+        gap: 12px;
+    }
+
+    #skills .col-flex {
+        gap: 12px;
+    }
+  }
