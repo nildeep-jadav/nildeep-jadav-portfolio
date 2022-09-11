@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="/css/style.css" class="style">
     <link rel="stylesheet" href="/css/style-mobile.css" class="style">
     <link rel="stylesheet" href="/css/style-tablet.css" class="style">
-    <link rel="icon" type="image/x-icon" href="/assets/img/Logo/AN_v1.3.png">
+    <link rel="stylesheet" href="/css/style-tablet-to-desktop.css" class="style">
+
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Logo/an-pictures-light.svg" id="faviconTag">
+
+    <!-- font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Triaayam Catalogue | Portfolio | Nildeep Jadav</title>
 </head>
 <!-- <body oncontextmenu="return false"> -->
@@ -16,7 +22,7 @@
     <nav id="navbar" class="col-flex">
         <div id="nav-wrap" class="row-flex">
             <div id="left-navbar" class="row-flex">
-                <a href="index.html" rel="noopener noreferrer"><img src="assets/img/Logo/AN_v1.3.png" alt=""></a>
+                <a href="index.html" rel="noopener noreferrer"><img src="assets/img/Logo/an-pictures-light.svg" alt=""></a>
                 <div class="subtitle-01"><a href="/index.html" rel="noopener noreferrer">Nildeep Jadav</a></div>
             </div>
             <input id="menu-toggle" type="checkbox" />
@@ -41,7 +47,9 @@
     </nav>    
     <!-- main-content (container) -->
     <main id="container" class="col-flex">
-        <a href="#navbar"><span id="top" class="paragraph-01">Top</span></a>
+        <i id="top" class="fa-solid fa-chevron-up"></i>
+
+        <!-- <a href="#navbar"><span id="top" class="paragraph-01">Top</span></a> -->
 
         <!-- hero area -->
         <section id="triaayam-wrapper" class="col-flex triaayam-img">
@@ -149,5 +157,52 @@
             </div>
         </footer>
     </main>
+    <script src="/css/script.js"></script>
+    <script src="css/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(window).scroll(function() {
+                var scrollval = $(window).scrollTop();
+                if(scrollval<100) {
+                        
+                    $('#top').hide();
+                }
+                else {
+                        
+                    $('#top').css('display', 'flex')
+                }
+
+                })
+                $('#top').on("click", function() {
+                $("html,body").animate({
+                        scrollTop: 0
+                }, 50)
+            })
+        });
+
+        // onscroll sticky navbar js
+        var lastScrollTop = 0;
+            navmenu = document.querySelector("#navbar")
+            window.addEventListener("scroll", function(){
+            var scrollTop = window.pageYOffset || this.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop){
+                navmenu.style.top="-100px";
+            } 
+            else {
+                navmenu.style.top="0";
+            }
+            lastScrollTop = scrollTop;
+        })
+
+        $('ul.menu li span a').click(
+            function() {
+                var cb = document.querySelector('#menu-toggle');
+                if (cb.checked == true) {
+                    cb.checked = false
+                }
+            }
+        );
+    </script>
+
 </body>
 </html>

@@ -1,3 +1,14 @@
+const faviconTag = document.getElementById("faviconTag") ;
+const isDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+const changeFavicon = () => {
+        if (isDark.matches) faviconTag.href = "./assets/img/Logo/an-pictures-light.svg";
+        else faviconTag.href = "./assets/img/Logo/an-pictures-dark.svg";
+};
+
+changeFavicon() ;
+setInterval(changeFavicon, 10);
+
 var width_screen = document.documentElement.clientWidth || window.innerWidth;
 function resizeDivs() {
     if (width_screen > 480) {
@@ -53,8 +64,7 @@ function resizeDivs() {
                 var total = betamg_descr + 24 + 24;
                 document.getElementById('betamg-wrapper').style.height = total + 'px'
         }
-
-
     }
 }
+
 window.onload = resizeDivs;

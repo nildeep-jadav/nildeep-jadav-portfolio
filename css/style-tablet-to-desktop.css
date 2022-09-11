@@ -1,7 +1,7 @@
-@media screen and (min-width: 480px) and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1100px) {
     #bg {
         top: 320px;
-        width: 100%;
+        width: 85%;
     }
     /* Typography */
     .headline-01 {
@@ -47,7 +47,7 @@
         padding: 12px 24px;
     }
     #nav-wrap {
-        width: 92%;
+        width: 85%;
     }
     
     .menu-button-container {
@@ -90,7 +90,7 @@
       }
     /* container */
     #container {
-        width: 92%;
+        width: 85%
         /* padding: 0 48px; */
     }
     /* container Over */
@@ -104,7 +104,7 @@
     }
 
     #hero-area > [id^="nildeep-jadav"] {
-        height: 400px;
+        height: 500px;
         filter: drop-shadow(24px 24px 60px rgba(0, 9, 14, 0.12));
     }
     /* hero area over */
