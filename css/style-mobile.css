@@ -325,7 +325,7 @@
 
     .popup-img span {
         top: auto;
-        left: 50%;
+        left: calc(50% - 20px);
         right: auto;
         bottom: 12px;
         
