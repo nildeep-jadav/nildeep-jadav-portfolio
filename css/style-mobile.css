@@ -317,11 +317,16 @@
     #before-after-images {
         height: 40vh;
     }
-/* Other Projects */
-.img-gallery {
-    flex-direction: column;
-}
-/* Other Projects Over */
+    /* Other Projects */
+    .img-gallery {
+        flex-direction: column;
+    }
+    /* Other Projects Over */
 
-
+    .popup-img span {
+        top: auto;
+        left: 50%;
+        right: auto;
+        bottom: 12px;
+    }
 }

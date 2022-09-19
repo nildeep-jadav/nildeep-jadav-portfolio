@@ -136,6 +136,7 @@
         <section class="popup-img">
             <span>&times;</span>
             <img src="/Other Projects/Logos/Boodle-1.jpg" alt="">
+            <div class="close-popup"></div>
         </section>
 
         <section class="divider"></section>
@@ -255,6 +256,10 @@
             }
         }
         
+        document.querySelector('.close-popup').onclick = () =>{
+            document.querySelector('.popup-img').style.display = 'none';
+            document.querySelector('#navbar').style.display = 'flex';
+        }
         document.querySelector('.popup-img span').onclick = () =>{
             document.querySelector('.popup-img').style.display = 'none';
             document.querySelector('#navbar').style.display = 'flex';
