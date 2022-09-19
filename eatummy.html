@@ -121,6 +121,12 @@
                 <img src="assets/img/Eatummy/Eatummy-Screens.png" alt="">
             </div>
         </section>
+        <section class="popup-img">
+            <span>&times;</span>
+            <img src="/Other Projects/Logos/Boodle-1.jpg" alt="">
+            <div class="close-popup"></div>
+        </section>
+
         <section class="divider"></section>
         
         <!-- Footer -->
@@ -216,6 +222,37 @@
             }
         );
     </script>
+    <!-- Script for popup image -->
+    <script>
+        document.querySelectorAll('#design-steps img').forEach(image =>{
+            image.onclick = () =>{
+                document.querySelector('.popup-img').style.display = 'block';
+                document.querySelector('.popup-img img').src = image.getAttribute('src');
+                document.querySelector('#navbar').style.display = 'none';
+                document.querySelector('.close-popup').style.background = 'rgba(255,255,255,0.92)';
+            }
+        });
+                    
+        window.onkeyup = function(e) {
+            var key = e.keyCode ? e.keyCode : e.which;
+            
+            if (key == "27") {
+                // 27 is keycode for Esc key
+                document.querySelector('.popup-img').style.display = 'none';
+                document.querySelector('#navbar').style.display = 'flex';
+            }
+        }
+        
+        document.querySelector('.close-popup').onclick = () =>{
+            document.querySelector('.popup-img').style.display = 'none';
+            document.querySelector('#navbar').style.display = 'flex';
+        }
+        document.querySelector('.popup-img span').onclick = () =>{
+            document.querySelector('.popup-img').style.display = 'none';
+            document.querySelector('#navbar').style.display = 'flex';
+        }
+    </script>
+        
     <!-- Script for Project wrappers -->
     <script>
         var width_screen = document.documentElement.clientWidth || window.innerWidth;

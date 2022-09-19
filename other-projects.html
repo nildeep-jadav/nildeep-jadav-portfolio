@@ -235,6 +235,7 @@
         );
     </script>
 
+    <!-- Script for popup image -->
     <script>
         document.querySelectorAll('.img-item img').forEach(image =>{
             image.onclick = () =>{
@@ -243,9 +244,7 @@
                 document.querySelector('#navbar').style.display = 'none';
             }
         });
-        
-        var playerSpriteX = 0;
-        
+               
         window.onkeyup = function(e) {
             var key = e.keyCode ? e.keyCode : e.which;
             
@@ -265,6 +264,7 @@
             document.querySelector('#navbar').style.display = 'flex';
         }
     </script>
+    
     <!-- Script for Project wrappers -->
     <script>
         var width_screen = document.documentElement.clientWidth || window.innerWidth;
