@@ -113,13 +113,10 @@
         text-align: left;
     }
 
-    /* #eatummy-wrapper, #snackify-wrapper, #betamg-wrapper, #triaayam-wrapper {
-        min-height: 50vh;
-    } */
 
-    #eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr {
+    #eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr, #other-prjt-descr, #prjt-at-rightmarc-descr {
         position: absolute;
-        top: 24px;
+        top: 36px;
         gap: 24px;
         z-index: 1;
         width: calc(50% - 12px);

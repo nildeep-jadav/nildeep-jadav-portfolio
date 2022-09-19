@@ -18,6 +18,8 @@
     --betamg-hero-image-url: url("/assets/img/BetaMG/BetaMG-Hero-Area.png");
     --snakify-hero-image-url: url("/assets/img/Snackify/Snackify-Hero-Area.png");
     --triaayam-hero-image-url: url("/assets/img/Triaayam/Triaayam-Hero-Area.png");
+    --other-prjt-hero-image-url: url("/assets/img/Other-Projects/Other-Projects-Hero-Area.png");
+    --prjt-at-rightmarc-hero-image-url: url("/assets/img/Projects-at-Riightmarc/Projetcs-at-Rightmarc-Hero-Area.png");
 }
 
 html {
@@ -450,7 +452,7 @@ p {
     align-self: stretch;
     gap: 12px;
 }
-#eatummy-wrapper, #snackify-wrapper, #betamg-wrapper, #triaayam-wrapper {
+#eatummy-wrapper, #snackify-wrapper, #betamg-wrapper, #triaayam-wrapper, #other-prjt-wrapper, #prjt-at-rightmarc-wrapper, #img-gallery-wrapper{
     position: relative;
     justify-content: flex-start;
     align-items: flex-start;
@@ -459,12 +461,12 @@ p {
     width: 100%;
     overflow: hidden;
 }
-#eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr {
+#eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr, #other-prjt-descr, #prjt-at-rightmarc-descr {
     position: absolute;
     align-items: flex-start;
     padding: 0;
     gap: 48px;
-    top: 24px;
+    top: 36px;
     left: 24px;
     width: calc(50% - 24px - 12px);
     z-index: 1;
@@ -483,6 +485,42 @@ p {
     mask-repeat: no-repeat;
 
     background: linear-gradient(90.11deg, var(--milk) 20%, rgba(255, 255, 255 ,0) 75%), var(--eatummy-hero-image-url), linear-gradient(90.11deg, rgba(0, 0, 0, 0) 20%, #000000 75%), var(--eatummy-hero-image-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten, screen, multiply;
+    padding-top: 39.91%; /* (img-height/img-width *100)  */
+    z-index: -1;
+}
+#other-prjt-img {
+    width: 100%;
+    -webkit-mask-image: var(--other-prjt-hero-image-url);
+    mask-image: var(--other-prjt-hero-image-url);
+    
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    background: linear-gradient(90.11deg, var(--milk) 20%, rgba(255, 255, 255 ,0) 75%), var(--other-prjt-hero-image-url), linear-gradient(90.11deg, rgba(0, 0, 0, 0) 20%, #000000 75%), var(--other-prjt-hero-image-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten, screen, multiply;
+    padding-top: 39.91%; /* (img-height/img-width *100)  */
+    z-index: -1;
+}
+#prjt-at-rightmarc-img {
+    width: 100%;
+    -webkit-mask-image: var(--prjt-at-rightmarc-hero-image-url);
+    mask-image: var(--prjt-at-rightmarc-hero-image-url);
+    
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    background: linear-gradient(90.11deg, var(--milk) 20%, rgba(255, 255, 255 ,0) 75%), var(--prjt-at-rightmarc-hero-image-url), linear-gradient(90.11deg, rgba(0, 0, 0, 0) 20%, #000000 75%), var(--prjt-at-rightmarc-hero-image-url);
     background-size: contain;
     background-repeat: no-repeat;
     background-blend-mode: lighten, screen, multiply;
@@ -648,6 +686,75 @@ p {
 }
 
 /* betambg page over */
+
+/* Other Projects */
+.img-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    /* width: 100%; */
+  }
+  
+  .img-gallery .img-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .img-item img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .img-item {
+    position: relative;
+    cursor: pointer;
+}
+/* hover */
+.img-item:hover{
+        top: -5px;
+        left: -5px;
+        box-shadow: 10px 8px 21px -3px rgba(35,35,35,0.12);
+        -webkit-box-shadow: 10px 8px 21px -3px rgba(35,35,35,0.12);
+        -moz-box-shadow: 10px 8px 21px -3px rgba(35,35,35,0.12);
+        transition: all 0.1s 0.05s ease-in-out;
+        z-index: 1;
+  }
+
+.popup-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+.popup-img span {
+    position: absolute;
+    top: 0;
+    right: 12px;
+    font-size: 40px;
+    /* font-weight: bolder; */
+    color: var(--cosmic-latte);
+    cursor: pointer;
+    z-index: 100;
+}
+
+.popup-img img {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    max-height: 95vh;
+    max-width: 85vw;
+    object-fit: cover;
+}
+  
+/* Other Projects Over */
+
 
 /* FORM */
 .contact-input {

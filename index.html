@@ -127,7 +127,7 @@
 
         <!-- Projects -->
         <section id="prjt" class="col-flex">
-            <!-- Project-1 Eatummy - Food App -->        
+            <!-- Eatummy - Food App -->        
             <section id="eatummy-wrapper" class="col-flex eatummy-img">
                 <div id="eatummy-descr" class="col-flex"> 
                     <div class="prjt-title col-flex">
@@ -143,10 +143,48 @@
             </section>
             <section class="divider"></section>
             
-            <!-- TEST Project -->        
-            
-    
-            <!-- Project-2 Snackify -->        
+            <!-- BeatMG -->  
+                <section id="betamg-wrapper" class="col-flex betamg-img">
+                        <div id="betamg-descr" class="col-flex">
+                            <div class="prjt-title col-flex">
+                                <span class="headline-02">BetaMG (TruuSOME)</span>
+                                <p class="paragraph-01">BetaMG (TruuSOME) is a startup to provide nutritions with your day to day meal with its products.</p>
+                            </div>
+                            <a href="/betamg.html"><button class="secondary-btn subtitle-01">View Project</button></a>
+                        </div>
+                    <div id="betamg-img"></div>
+                </section>
+                <section class="divider"></section>
+
+            <!-- Triaayam -->    
+            <section id="triaayam-wrapper" class="col-flex triaayam-img">
+                <div id="triaayam-descr" class="col-flex"> 
+                    <div class="prjt-title col-flex">
+                        <div>
+                            <span class="headline-02">Triaayam Catalogue</span>
+                        </div>
+                        <p class="paragraph-01">Triaayam provides 3d printing services and solutions.</p>
+                    </div>
+                    <a href="/triaayam.html"><button class="secondary-btn subtitle-01">View Project</button></a>
+                </div>
+                <div id="triaayam-img"></div>
+            </section>
+            <section class="divider"></section>
+
+            <!-- Other Projects -->        
+            <section id="other-prjt-wrapper" class="col-flex other-prjt-img">
+                <div id="other-prjt-descr" class="col-flex"> 
+                    <div class="prjt-title col-flex">
+                        <span class="headline-02">Other Projets</span>
+                        <p class="paragraph-01">View my Logo designs, vector portraits, poster design, custom wallet card, etc.</p>
+                    </div>
+                    <a href="/other-projects.html"><button class="secondary-btn subtitle-01">View Projects</button></a>
+                </div>
+                <div id="other-prjt-img"></div>
+            </section>
+            <section class="divider"></section>
+
+            <!-- Snackify -->        
             <section id="snackify-wrapper" class="col-flex" style="display: none;">
                 <div id="snackify-descr" class="col-flex snackify-img"> <!-- class="snackify-img"-->
                     <div class="prjt-title col-flex">
@@ -161,37 +199,8 @@
                 <div id="snackify-img"></div>
             </section>
             <section class="divider" style="display: none;"></section>
-    
-            <!-- Project-3 BeatMG -->  
-                <section id="betamg-wrapper" class="col-flex betamg-img">
-                        <div id="betamg-descr" class="col-flex">
-                            <div class="prjt-title col-flex">
-                                <span class="headline-02">BetaMG (TruuSOME)</span>
-                                <p class="paragraph-01">BetaMG (TruuSOME) is a startup to provide nutritions with your day to day meal with its products.</p>
-                            </div>
-                            <a href="/betamg.html"><button class="secondary-btn subtitle-01">View Project</button></a>
-                        </div>
-                    <div id="betamg-img"></div>
-                </section>
-                <section class="divider"></section>
+        </section>
 
-            <!-- Project-3 Triaayam -->    
-            <section id="triaayam-wrapper" class="col-flex triaayam-img">
-                <div id="triaayam-descr" class="col-flex"> 
-                    <div class="prjt-title col-flex">
-                        <div>
-                            <span class="headline-02">Triaayam Catalogue</span>
-                        </div>
-                        <p class="paragraph-01">Triaayam provides 3d printing services and solutions.</p>
-                    </div>
-                    <a href="/triaayam.html"><button class="secondary-btn subtitle-01">View Project</button></a>
-                </div>
-                <div id="triaayam-img"></div>
-            </section>
-            <section class="divider"></section>
-        </section>
-            
-        </section>
         <!-- Footer -->
         <footer id="footer" class="row-flex section-wrapper">
             <div id="contact" class="col-flex">
@@ -241,6 +250,8 @@
 
     <script src="/css/script.js"></script>
     <script src="css/jquery.min.js"></script>
+    
+    <!-- Script for scroll and navbar -->
     <script>
         $(function () {
             $(window).scroll(function() {
@@ -284,6 +295,95 @@
                 }
             }
         );
+    </script>
+
+    <!-- Script for Project wrappers -->
+    <script>
+        var width_screen = document.documentElement.clientWidth || window.innerWidth;
+        function resizeDivs() {
+            if (width_screen > 480) {
+            
+                // Eatummy
+                var eatummy_descr = document.getElementById('eatummy-descr').offsetHeight;
+                var eatummy_wrapper = document.getElementById('eatummy-wrapper').offsetHeight;
+                var eatummy_img = document.getElementById('eatummy-img').offsetHeight;
+
+                if (eatummy_img > eatummy_descr) {
+                    var total = eatummy_wrapper;
+                    document.getElementById('eatummy-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = eatummy_descr + 24 + 24 + 12;
+                        document.getElementById('eatummy-wrapper').style.height = total + 'px'
+                }
+
+                // Triaayam
+                var triaayam_descr = document.getElementById('triaayam-descr').offsetHeight;
+                var triaayam_wrapper = document.getElementById('triaayam-wrapper').offsetHeight;
+                var triaayam_img = document.getElementById('triaayam-img').offsetHeight;
+
+                if (triaayam_img > triaayam_descr) {
+                        var total = triaayam_wrapper;
+                        document.getElementById('triaayam-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = triaayam_descr + 24 + 24 + 12;
+                        document.getElementById('triaayam-wrapper').style.height = total + 'px'
+                }
+
+                // snackify
+                var snackify_descr = document.getElementById('snackify-descr').offsetHeight;
+                var snackify_wrapper = document.getElementById('snackify-wrapper').offsetHeight;
+                var snackify_img = document.getElementById('snackify-img').offsetHeight;
+
+                if (snackify_img > snackify_descr) {
+                        var total = snackify_wrapper;
+                        document.getElementById('snackify-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = snackify_descr + 24 + 24 + 12;
+                        document.getElementById('snackify-wrapper').style.height = total + 'px'
+                }
+
+                // betamg
+                var betamg_descr = document.getElementById('betamg-descr').offsetHeight;
+                var betamg_wrapper = document.getElementById('betamg-wrapper').offsetHeight;
+                var betamg_img = document.getElementById('betamg-img').offsetHeight;
+
+                if (betamg_img > betamg_descr) {
+                        var total = betamg_wrapper;
+                        document.getElementById('betamg-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = betamg_descr + 24 + 24 + 12;
+                        document.getElementById('betamg-wrapper').style.height = total + 'px'
+                }
+
+                // Other Projects
+                var other_prjt_descr = document.getElementById('other-prjt-descr').offsetHeight;
+                var other_prjt_wrapper = document.getElementById('other-prjt-wrapper').offsetHeight;
+                var other_prjt_img = document.getElementById('other-prjt-img').offsetHeight;
+
+                if (other_prjt_img > other_prjt_descr) {
+                        var total = other_prjt_wrapper;
+                        document.getElementById('other-prjt-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = other_prjt_descr + 24 + 24 + 12;
+                        document.getElementById('other-prjt-wrapper').style.height = total + 'px'
+                }
+
+                // Projects at Rightmarc
+                var prjt_at_rightmarc_descr = document.getElementById('prjt-at-rightmarc-descr').offsetHeight;
+                var prjt_at_rightmarc_wrapper = document.getElementById('prjt-at-rightmarc-wrapper').offsetHeight;
+                var prjt_at_rightmarc_img = document.getElementById('prjt-at-rightmarc-img').offsetHeight;
+
+                if (prjt_at_rightmarc_img > prjt_at_rightmarc_descr) {
+                        var total = prjt_at_rightmarc_wrapper;
+                        document.getElementById('prjt-at-rightmarc-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = other_prjt_descr + 24 + 24 + 12;
+                        document.getElementById('prjt-at-rightmarc-wrapper').style.height = total + 'px'
+                }
+            }
+        }
+
+        window.onload = resizeDivs;
     </script>
 
 </body>

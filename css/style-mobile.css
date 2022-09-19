@@ -188,7 +188,7 @@
         align-items: center;
     }
 
-    #eatummy-wrapper, #snackify-wrapper, #betamg-wrapper, #triaayam-wrapper {
+    #eatummy-wrapper, #snackify-wrapper, #betamg-wrapper, #triaayam-wrapper, #other-prjt-wrapper, #prjt-at-rightmarc-wrapper {
         position: relative;
         padding: 0 12px;
         min-height: 40vh;
@@ -196,9 +196,9 @@
         /* padding: 12px 0px;
         gap: 12px; */
     }
-    #eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr {
+    #eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr, #other-prjt-descr, #prjt-at-rightmarc-descr {
         width: calc(100% - 48px);
-        top: 12px;
+        top: 36px;
         left: 24px;
         padding: 0;
         gap: 24px;
@@ -235,6 +235,36 @@
         left: 0;
         z-index: -1;    
     }
+    .other-prjt-img::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        opacity: 0.22;
+        background: var(--other-prjt-hero-image-url);
+        /* background-position: center; */
+        background-position: 60% 50%;
+        background-repeat: no-repeat;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;    
+    }
+    
+    .prjt-at-rightmarc-img::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        opacity: 0.22;
+        background: var(--prjt-at-rightmarc-hero-image-url);
+        /* background-position: center; */
+        background-position: 60% 50%;
+        background-repeat: no-repeat;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;    
+    }
+    
     .betamg-img::before {
         content: "";
         position: absolute;
@@ -269,19 +299,9 @@
         gap: 6px;
     }
 
-    #eatummy-img {
+    #eatummy-img, #snackify-img, #triaayam-img, #betamg-img, #other-prjt-img, #prjt-at-rightmarc-img{
         display: none;
     }
-    #snackify-img {
-        display: none;
-    }
-    #triaayam-img {
-        display: none;
-    }
-    #betamg-img {
-        display: none;
-    }
-
     #down-arrow {
         display: none;
         margin-top: -20px;
@@ -297,5 +317,11 @@
     #before-after-images {
         height: 40vh;
     }
+/* Other Projects */
+.img-gallery {
+    flex-direction: column;
+}
+/* Other Projects Over */
+
 
 }

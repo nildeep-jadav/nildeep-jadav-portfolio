@@ -203,6 +203,29 @@
             }
         );
     </script>
+    <!-- Script for Project wrappers -->
+    <script>
+        var width_screen = document.documentElement.clientWidth || window.innerWidth;
+        function resizeDivs() {
+            if (width_screen > 480) {
+                // Triaayam
+                var triaayam_descr = document.getElementById('triaayam-descr').offsetHeight;
+                var triaayam_wrapper = document.getElementById('triaayam-wrapper').offsetHeight;
+                var triaayam_img = document.getElementById('triaayam-img').offsetHeight;
+
+                if (triaayam_img > triaayam_descr) {
+                        var total = triaayam_wrapper;
+                        document.getElementById('triaayam-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = triaayam_descr + 24 + 24;
+                        document.getElementById('triaayam-wrapper').style.height = total + 'px'
+                }
+            }
+        }
+
+        window.onload = resizeDivs;
+    </script>
+
 
 </body>
 </html>

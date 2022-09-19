@@ -216,6 +216,30 @@
             }
         );
     </script>
+    <!-- Script for Project wrappers -->
+    <script>
+        var width_screen = document.documentElement.clientWidth || window.innerWidth;
+        function resizeDivs() {
+            if (width_screen > 480) {
+            
+                // Eatummy
+                var eatummy_descr = document.getElementById('eatummy-descr').offsetHeight;
+                var eatummy_wrapper = document.getElementById('eatummy-wrapper').offsetHeight;
+                var eatummy_img = document.getElementById('eatummy-img').offsetHeight;
+
+                if (eatummy_img > eatummy_descr) {
+                    var total = eatummy_wrapper;
+                    document.getElementById('eatummy-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = eatummy_descr + 24 + 24;
+                        document.getElementById('eatummy-wrapper').style.height = total + 'px'
+                }
+            }
+        }
+
+        window.onload = resizeDivs;
+    </script>
+
 
 </body>
 </html>
