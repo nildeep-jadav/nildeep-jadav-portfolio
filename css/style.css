@@ -19,6 +19,7 @@
     --snakify-hero-image-url: url("/assets/img/Snackify/Snackify-Hero-Area.png");
     --triaayam-hero-image-url: url("/assets/img/Triaayam/Triaayam-Hero-Area.png");
     --other-prjt-hero-image-url: url("/assets/img/Other-Projects/Other-Projects-Hero-Area.png");
+    --nidhihalani-hero-image-url: url("/assets/img/Nidhi Halani/nidhi-halani-Hero-Area.png");
     --prjt-at-rightmarc-hero-image-url: url("/assets/img/Projects-at-Riightmarc/Projetcs-at-Rightmarc-Hero-Area.png");
 }
 
@@ -452,7 +453,7 @@ p {
     align-self: stretch;
     gap: 12px;
 }
-#eatummy-wrapper, #snackify-wrapper, #betamg-wrapper, #triaayam-wrapper, #other-prjt-wrapper, #prjt-at-rightmarc-wrapper, #img-gallery-wrapper{
+#nidhihalani-wrapper, #eatummy-wrapper, #snackify-wrapper, #betamg-wrapper, #triaayam-wrapper, #other-prjt-wrapper, #prjt-at-rightmarc-wrapper, #img-gallery-wrapper{
     position: relative;
     justify-content: flex-start;
     align-items: flex-start;
@@ -461,7 +462,7 @@ p {
     width: 100%;
     overflow: hidden;
 }
-#eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr, #other-prjt-descr, #prjt-at-rightmarc-descr {
+#nidhihalani-descr, #eatummy-descr, #snackify-descr, #betamg-descr, #triaayam-descr, #other-prjt-descr, #prjt-at-rightmarc-descr {
     position: absolute;
     align-items: flex-start;
     padding: 0;
@@ -473,6 +474,24 @@ p {
 
 }
 
+#nidhihalani-img {
+    width: 100%;
+    -webkit-mask-image: var(--nidhihalani-hero-image-url);
+    mask-image: var(--nidhihalani-hero-image-url);
+    
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    background: linear-gradient(90.11deg, var(--milk) 20%, rgba(255, 255, 255 ,0) 75%), var(--nidhihalani-hero-image-url), linear-gradient(90.11deg, rgba(0, 0, 0, 0) 20%, #000000 75%), var(--nidhihalani-hero-image-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten, screen, multiply;
+    padding-top: 39.91%; /* (img-height/img-width *100)  */
+    z-index: -1;
+}
 #eatummy-img {
     width: 100%;
     -webkit-mask-image: var(--eatummy-hero-image-url);
