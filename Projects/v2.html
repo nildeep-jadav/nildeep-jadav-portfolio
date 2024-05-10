@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <link rel="stylesheet" href="/css/v2_style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="image-gallery">
+            <div class="img-column-1">
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/Boodle-1.jpg" alt="" />
+                </div>
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/Boodle-2.jpg" alt="" />
+                </div>
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/Boodle-3.jpg" alt="" />
+                </div>
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/Boodle-4.jpg" alt="" />
+                </div>
+            </div>
+            <div class="img-column-2">
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/triaayam-logo-2.jpg" alt="" />
+                </div>
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/DevRobo.jpg" alt="" />
+                </div>
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/triaayam-logo-3.jpg" alt="" />
+                </div>
+            </div>
+            <div class="img-column-3">
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/Fight-this-pandemic.jpg" alt="" />
+                    <!-- <div class="overlay"><span>Image title</span></div> -->
+                </div>
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/triaayam-logo-1.jpg" alt="" />
+                    <!-- <div class="overlay"><span>Image title</span></div> -->
+                </div>
+                <div class="image-item">
+                    <img src="/Other Projects/Logos/manav-chotalia-logo.jpg" alt="" />
+                    <!-- <div class="overlay"><span>Image title</span></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="/Other Projects/Logos/Boodle-1.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.image-item img').forEach(image =>{
+            image.onclick = () =>{
+                document.querySelector('.popup-image').style.display = 'block';
+                document.querySelector('.popup-image img').src = image.getAttribute('src');
+            }
+        });
+
+        var playerSpriteX = 0;
+
+        window.onkeyup = function(e) {
+            var key = e.keyCode ? e.keyCode : e.which;
+
+            if (key == "27") {
+                // 27 is keycode for Esc key
+                document.querySelector('.popup-image').style.display = 'none';
+            }
+        }
+
+        document.querySelector('.popup-image span').onclick = () =>{
+            document.querySelector('.popup-image').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Image Grid</title>
+    <link rel="stylesheet" href="/css/style-img-grid - Copy.css" />
+</head>
+<body>
+    <div id="container">
+        <div class="grid-wrapper">
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/Boodle-1.jpg" alt="" class="card__img"/>
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/Boodle-2.jpg" alt="" class="card__img" />
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/Boodle-3.jpg" alt="" class="card__img" />
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/Boodle-4.jpg" alt="" class="card__img" />
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/triaayam-logo-2.jpg" alt="" class="card__img" />
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/DevRobo.jpg" alt="" class="card__img" />
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/triaayam-logo-3.jpg" alt="" class="card__img" />
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/Fight-this-pandemic.jpg" alt="" class="card__img" />
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/triaayam-logo-1.jpg" alt="" class="card__img" />
+                </div>
+                <div class="card stacked big tall wide">
+                    <img src="/Other Projects/Logos/manav-chotalia-logo.jpg" alt="" class="card__img" />
+                </div>
+        </div>
+    </div>
+    <div class="popup-image">
+        <span>&times;</span>
+        <img src="/Other Projects/Logos/Boodle-1.jpg" alt="">
+    </div>
+    <script>
+        document.querySelectorAll('.card img').forEach(image =>{
+            image.onclick = () =>{
+                document.querySelector('.popup-image').style.display = 'block';
+                document.querySelector('.popup-image img').src = image.getAttribute('src');
+            }
+        });
+
+        var playerSpriteX = 0;
+
+        window.onkeyup = function(e) {
+            var key = e.keyCode ? e.keyCode : e.which;
+
+            if (key == "27") {
+                // 27 is keycode for Esc key
+                document.querySelector('.popup-image').style.display = 'none';
+            }
+        }
+
+        document.querySelector('.popup-image span').onclick = () =>{
+            document.querySelector('.popup-image').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

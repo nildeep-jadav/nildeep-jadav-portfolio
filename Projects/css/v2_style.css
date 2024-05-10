@@ -1,0 +1,105 @@
+/* ======================================
+Responsive Image gallery Style rules
+======================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+ .container {
+    width: 85%;
+    margin: auto;
+    /* padding: 40px 5%; */
+  }
+   
+  /* Responsive image gallery rules begin*/
+  
+  .image-gallery {
+    /* Mobile first */
+    /* display: flex;
+    flex-direction: column; */
+    /* gap: 10px; */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto); /* min and max height od the row */
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+  
+.image-gallery .img-column-1,
+.image-gallery .img-column-2,
+.image-gallery .img-column-3
+{
+    grid-column: 1/3;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(50%, auto); /* min and max height od the row */
+    }
+  }
+  
+@media only screen and (min-width: 480px) {
+    .image-gallery {
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(100%, auto); /* min and max height od the row */
+    }
+  }
+  
+  /* overlay styles */
+  
+  .image-item {
+    position: relative;
+    cursor: pointer;
+}
+/* hover */
+    .image-item:hover{
+        top: -5px;
+        left: -5px;
+        box-shadow: 10px 8px 21px -3px rgba(35,35,35,0.12);
+        -webkit-box-shadow: 10px 8px 21px -3px rgba(35,35,35,0.12);
+        -moz-box-shadow: 10px 8px 21px -3px rgba(35,35,35,0.12);
+        transition: all 0.1s 0.05s ease-in-out;
+        z-index: 1;
+  }
+
+  .container .popup-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+.container .popup-image span {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.container .popup-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border:  5px solid white;
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+}
+  
