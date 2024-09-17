@@ -16,7 +16,7 @@
 
 </head>
 <!-- <body oncontextmenu="return false"> -->
-<body
+<body>
     <!-- background -->
     <!-- <img src="assets/img/Bolbs.png" alt="blobs bg" id="bg"> -->
     
@@ -69,7 +69,7 @@
         <!-- About Me -->
         <section id="about-me" class="col-flex section-wrapper">
             <div class=" title headline-02">About Me</div>
-            <p class="paragraph-01">I’m Nildeep Jadav, a <em>Graphic Designers</em> based in Gujarat, India. I am quite more interested in <em>User Centric Design</em>.
+            <p class="paragraph-01">I’m Nildeep Jadav, a <em>Graphic Designer</em> based in Gujarat, India. I am quite more interested in <em>User Centric Design</em>.
                 <br><br>
                 I have 3+ years experience in Graphic Design. Currenty <span class="paragraph-02">(May 2024)</span>, I am employed as a <em>Graphic Designer</em> at <i><u> </em><a href="https://www.arcedior.com" class="tertiary-btn" target="_blank" rel="noopener noreferrer">Arcedior International Pvt. Ltd.</a> </i></u> a global sourcing and procurement company. My day to day work is to create stunning designes for our website, products we catered and do shoot and edits for social media posts for advertisment, and handle the website backend and frontend for ecommerce part of our business which is called <i><u> </em><a href="https://shop.arcedior.com" class="tertiary-btn" target="_blank" rel="noopener noreferrer">Shop Arcedior</a> </i></u>.
                 <br><br>
@@ -92,7 +92,7 @@
                 <div id="tools" class="row-flex">
                     <div class="col-flex">
                         <img src="/assets/img/Logo/logo-photoshop.svg" alt="">
-                        <img src="/assets/img/Logo/logo-figma.svg" alt="">
+                        <img src="/assets/img/Logo/logo-premiere-pro.svg" alt="">
                     </div>
                     <div class="col-flex">
                         <img src="/assets/img/Logo/logo-illustrator.svg" alt="">
@@ -100,6 +100,7 @@
                     </div>
                     <div class="col-flex">
                         <img src="/assets/img/Logo/logo-after-effects.svg" alt="">
+                        <img src="/assets/img/Logo/logo-figma.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -111,11 +112,11 @@
                         <p>&#9679; Problem Statement</p>
                         <p>&#9679; Video Editing</p>
                         <p>&#9679; Photography</p>
-                        <p>&#9679; Usability Testing</p>
+                        <p>&#9679; Feedback Adaptability</p>
                         <p>&#9679; Active Listening</p>
                     </div>
                     <div class="col-flex">
-                        <p>&#9679; Communication</p>
+                        <p>&#9679; Marketing Collateral</p>
                         <p>&#9679; Design System</p>
                         <p>&#9679; Collabration</p>
                         <p>&#9679; Prototyping</p>
@@ -161,6 +162,47 @@
             </section>
             <section class="divider"></section>
             
+            <!-- Logo Designs -->        
+            <section id="logos-wrapper" class="col-flex logos-img">
+                <div id="logos-descr" class="col-flex"> 
+                    <div class="prjt-title col-flex">
+                        <div>
+                            <span class="headline-02">Logo Designs</span>
+                        </div>
+                        <p class="paragraph-01">My logo designs are all about capturing the essence of a brand in a clean and memorable way.</p>
+                    </div>
+                    <a href="/logo-deisgns.html"><button class="secondary-btn subtitle-01">View Project</button></a>
+                </div>
+                <div id="logos-img"></div>
+            </section>
+            <section class="divider"></section>
+
+            <!-- Poster Projects -->        
+            <section id="poster-prjt-wrapper" class="col-flex poster-prjt-img">
+                <div id="poster-prjt-descr" class="col-flex"> 
+                    <div class="prjt-title col-flex">
+                        <span class="headline-02">Posters and Creatives</span>
+                        <p class="paragraph-01">Browse to see my poster and creatives design projects</p>
+                    </div>
+                    <a href="/posters-and-creatives.html"><button class="secondary-btn subtitle-01">View Projects</button></a>
+                </div>
+                <div id="poster-prjt-img"></div>
+            </section>
+            <section class="divider"></section>
+
+            <!-- Stationery Projects -->        
+            <section id="stationery-prjt-wrapper" class="col-flex stationery-prjt-img">
+                <div id="stationery-prjt-descr" class="col-flex"> 
+                    <div class="prjt-title col-flex">
+                        <span class="headline-02">Stationery Design</span>
+                        <p class="paragraph-01">Browse to see my stationery and creatives design projects</p>
+                    </div>
+                    <a href="/stationery-design.html"><button class="secondary-btn subtitle-01">View Projects</button></a>
+                </div>
+                <div id="stationery-prjt-img"></div>
+            </section>
+            <section class="divider"></section>
+
             <!-- BeatMG -->  
                 <section id="betamg-wrapper" class="col-flex betamg-img">
                         <div id="betamg-descr" class="col-flex">
@@ -332,6 +374,42 @@
                 }  else {
                         var total = eatummy_descr + 24 + 24 + 12;
                         document.getElementById('eatummy-wrapper').style.height = total + 'px'
+                }
+                // Logo Design
+                var logos_descr = document.getElementById('logos-descr').offsetHeight;
+                var logos_wrapper = document.getElementById('logos-wrapper').offsetHeight;
+                var logos_img = document.getElementById('logos-img').offsetHeight;
+
+                if (logos_img > logos_descr) {
+                    var total = logos_wrapper;
+                    document.getElementById('logos-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = logos_descr + 24 + 24 + 12;
+                        document.getElementById('logos-wrapper').style.height = total + 'px'
+                }
+                // Poster Design
+                var poster_prjt_descr = document.getElementById('poster-prjt-descr').offsetHeight;
+                var poster_prjt_wrapper = document.getElementById('poster-prjt-wrapper').offsetHeight;
+                var poster_prjt_img = document.getElementById('poster-prjt-img').offsetHeight;
+
+                if (poster_prjt_img > poster_prjt_descr) {
+                    var total = poster_prjt_wrapper;
+                    document.getElementById('poster-prjt-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = poster_prjt_descr + 24 + 24 + 12;
+                        document.getElementById('poster-prjt-wrapper').style.height = total + 'px'
+                }
+                // Stationery Design
+                var stationery_descr = document.getElementById('stationery-prjt-descr').offsetHeight;
+                var stationery_wrapper = document.getElementById('stationery-prjt-wrapper').offsetHeight;
+                var stationery_img = document.getElementById('stationery-prjt-img').offsetHeight;
+
+                if (stationery_img > stationery_descr) {
+                    var total = stationery_wrapper;
+                    document.getElementById('stationery-prjt-wrapper').style.height = total + 'px'
+                }  else {
+                        var total = stationery_descr + 24 + 24 + 12;
+                        document.getElementById('stationerys-prjt-wrapper').style.height = total + 'px'
                 }
 
                 // Triaayam
