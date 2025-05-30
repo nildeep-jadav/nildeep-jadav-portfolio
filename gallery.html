@@ -39,7 +39,7 @@
 
 <script>
 async function loadCategories() {
-  const res = await fetch('/.netlify/functions/get_categories');
+  const res = await fetch('/.netlify/functions/get_categories.js');
   const categories = await res.json();
   const tabs = document.getElementById('categoryTabs');
 
@@ -60,7 +60,7 @@ async function loadCategories() {
 }
 
 async function loadImages(category) {
-  const res = await fetch(`/.netlify/functions/get_images?category=${encodeURIComponent(category)}`);
+  const res = await fetch(`/.netlify/functions/get_images.js?category=${encodeURIComponent(category)}`);
   const images = await res.json();
   const container = document.getElementById('galleryContainer');
   container.innerHTML = '';
