@@ -167,57 +167,63 @@
   }
   
   function loadImages(category) {
-    const container = document.getElementById("galleryContainer");
-    container.innerHTML = "";
-  
-    const totalImagesToTry = 20;
-    let imageIndex = 1;
-    let loadedImages = 0;
-    let attempts = 0;
-  
-    function tryLoadNext() {
-      if (attempts >= totalImagesToTry) {
-        // Once all attempts done, initialize Masonry
-        if (msnry) msnry.destroy();
-        msnry = new Masonry(container, {
-          itemSelector: '.grid-item',
-          gutter: 15,
-        });
-        return;
-      }
-  
-      const imgPath = `/gallery/${category}/${imageIndex}.jpg`;
-      const img = new Image();
-      img.src = imgPath;
-  
-      img.onload = () => {
-        const div = document.createElement('div');
-        div.className = 'grid-item';
-  
-        const link = document.createElement('a');
-        link.href = imgPath;
-        link.setAttribute('data-lightbox', category); // same group for each category
-        link.setAttribute('data-title', `Image ${imageIndex} from ${category}`);
-        link.appendChild(img);
-        div.appendChild(link);
-        container.appendChild(div);
+  const container = document.getElementById("galleryContainer");
+  container.innerHTML = "";
 
-  
-        loadedImages++;
-        imageIndex++;
-        attempts++;
-        tryLoadNext();
-      };
-  
-      img.onerror = () => {
-        imageIndex++;
-        attempts++;
-        tryLoadNext();
-      };
+  const maxAttempts = 50; // max images to try
+  const maxErrors = 5;    // stop if too many failures
+  let imageIndex = 1;
+  let loadedImages = 0;
+  let errorCount = 0;
+
+  function tryLoadNext() {
+    if (imageIndex > maxAttempts || errorCount >= maxErrors) {
+      // Initialize Masonry after loading
+      if (msnry) msnry.destroy();
+      msnry = new Masonry(container, {
+        itemSelector: '.grid-item',
+        gutter: 15,
+      });
+
+      if (loadedImages < 2) {
+        console.warn("Only 1 image loaded, Lightbox navigation won't work.");
+      }
+
+      return;
     }
-  
-    tryLoadNext(); // Start loading
+
+    const imgPath = `/gallery/${category}/${imageIndex}.JPG`;
+    const img = new Image();
+    img.src = imgPath;
+
+    img.onload = () => {
+      const div = document.createElement('div');
+      div.className = 'grid-item';
+
+      const link = document.createElement('a');
+      link.href = imgPath;
+      link.setAttribute('data-lightbox', category);
+      link.setAttribute('data-title', `Image ${imageIndex} from ${category}`);
+      link.appendChild(img);
+      div.appendChild(link);
+      container.appendChild(div);
+
+      loadedImages++;
+      imageIndex++;
+      errorCount = 0; // reset on success
+      tryLoadNext();
+    };
+
+    img.onerror = () => {
+      errorCount++;
+      imageIndex++;
+      tryLoadNext();
+    };
   }
+
+  tryLoadNext(); // Start loading
+}
+
   
   loadCategories();
   </script>
