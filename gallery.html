@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 20px; }
+    .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+    .tabs button {
+      padding: 10px 15px;
+      cursor: pointer;
+      border: none;
+      background: #ddd;
+    }
+    .tabs button.active {
+      background: #333;
+      color: white;
+    }
+    .gallery {
+      columns: 4 200px;
+      column-gap: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .gallery { columns: 2 150px; }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Dynamic Gallery</h2>
+<div class="tabs" id="categoryTabs"></div>
+<div class="gallery" id="galleryContainer"></div>
+
+<script>
+async function loadCategories() {
+  const res = await fetch('/.netlify/functions/get_categories');
+  const categories = await res.json();
+  const tabs = document.getElementById('categoryTabs');
+
+  categories.forEach((cat, index) => {
+    const btn = document.createElement('button');
+    btn.textContent = cat.replace(/_/g, ' ');
+    btn.onclick = () => {
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      loadImages(cat);
+    };
+    if (index === 0) {
+      btn.classList.add('active');
+      loadImages(cat);
+    }
+    tabs.appendChild(btn);
+  });
+}
+
+async function loadImages(category) {
+  const res = await fetch(`/.netlify/functions/get_images?category=${encodeURIComponent(category)}`);
+  const images = await res.json();
+  const container = document.getElementById('galleryContainer');
+  container.innerHTML = '';
+
+  images.forEach(img => {
+    const imageEl = document.createElement('img');
+    imageEl.src = img;
+    container.appendChild(imageEl);
+  });
+}
+
+loadCategories();
+</script>
+
+</body>
+</html>
