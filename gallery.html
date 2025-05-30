@@ -94,12 +94,23 @@
     const container = document.getElementById("galleryContainer");
     container.innerHTML = "";
   
-    let loadedCount = 0;
-    const totalImages = 20;
+    const totalImagesToTry = 20;
+    let imageIndex = 1;
+    let loadedImages = 0;
+    let attempts = 0;
   
-    for (let i = 1; i <= totalImages; i++) {
-      const imgPath = `/gallery/${category}/${i}.jpg`;
+    function tryLoadNext() {
+      if (attempts >= totalImagesToTry) {
+        // Once all attempts done, initialize Masonry
+        if (msnry) msnry.destroy();
+        msnry = new Masonry(container, {
+          itemSelector: '.grid-item',
+          gutter: 15,
+        });
+        return;
+      }
   
+      const imgPath = `/gallery/${category}/${imageIndex}.jpg`;
       const img = new Image();
       img.src = imgPath;
   
@@ -107,7 +118,6 @@
         const div = document.createElement('div');
         div.className = 'grid-item';
   
-        // Wrap image in <a> tag for lightbox
         const link = document.createElement('a');
         link.href = imgPath;
         link.setAttribute('data-lightbox', category);
@@ -115,22 +125,26 @@
         div.appendChild(link);
         container.appendChild(div);
   
-        loadedCount++;
-        if (loadedCount === totalImages) {
-          if (msnry) msnry.destroy();
-          msnry = new Masonry(container, {
-            itemSelector: '.grid-item',
-            gutter: 15,
-          });
-        }
+        loadedImages++;
+        imageIndex++;
+        attempts++;
+        tryLoadNext();
       };
   
-      img.onerror = () => loadedCount++;
+      img.onerror = () => {
+        // Image doesn't exist, try next
+        imageIndex++;
+        attempts++;
+        tryLoadNext();
+      };
     }
+  
+    tryLoadNext(); // Start loading
   }
   
   loadCategories();
   </script>
+  
 
 </body>
 </html>
