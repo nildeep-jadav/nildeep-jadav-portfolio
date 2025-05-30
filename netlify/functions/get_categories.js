@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 exports.handler = async function () {
-  const galleryPath = path.join(__dirname, '../../gallery');
-
   try {
+    const galleryPath = path.join(process.cwd(), 'public', 'gallery'); // ✅ FIXED
+
     const folders = fs.readdirSync(galleryPath).filter(name =>
       fs.statSync(path.join(galleryPath, name)).isDirectory()
     );
@@ -16,7 +16,7 @@ exports.handler = async function () {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Unable to read gallery folders' })
+      body: JSON.stringify({ error: error.message })
     };
   }
 };

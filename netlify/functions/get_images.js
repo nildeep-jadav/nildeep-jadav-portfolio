@@ -3,14 +3,16 @@ const path = require('path');
 
 exports.handler = async function (event) {
   const category = event.queryStringParameters.category;
-  const galleryDir = path.join(__dirname, '../../gallery', category);
+  const galleryPath = path.join(process.cwd(), 'public', 'gallery', category); // ✅ FIXED
 
   try {
-    const files = fs.readdirSync(galleryDir).filter(file =>
+    const files = fs.readdirSync(galleryPath).filter(file =>
       /\.(jpg|jpeg|png|gif)$/i.test(file)
     );
 
-    const urls = files.map(file => `/gallery/${category}/${file}`);
+    const urls = files.map(file =>
+      `/gallery/${category}/${file}`
+    );
 
     return {
       statusCode: 200,
@@ -19,7 +21,8 @@ exports.handler = async function (event) {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Unable to load images' })
+      body: JSON.stringify({ error: error.message })
     };
   }
 };
+
