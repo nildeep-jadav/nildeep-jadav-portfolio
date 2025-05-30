@@ -30,6 +30,14 @@
       background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
     }
 
+
+    .lb-nav a.lb-prev, .lb-nav a.lb-next {
+      display: block !important;
+      opacity: 1 !important;
+      z-index: 1000;
+    }
+
+
     .lightbox {
       max-width: 90%;
       max-height: 90%;
@@ -40,6 +48,40 @@
       top: 45%;
     }
 
+    .lb-nav a.lb-prev,
+    .lb-nav a.lb-next {
+      display: block !important;
+      opacity: 1 !important;
+      z-index: 1000;
+    }
+
+    .lb-prev {
+      left: 0;
+    }
+
+    .lb-next {
+      right: 0;
+    }
+
+    .lb-prev::after {
+      content: "◀";
+      font-size: 48px;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+    }
+
+    .lb-next::after {
+      content: "▶";
+      font-size: 48px;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+    }
 
     .lb-data .lb-close {
       right: -10px;
@@ -180,6 +222,15 @@
   loadCategories();
   </script>
   
+
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'alwaysShowNavOnTouchDevices': true,
+      'showImageNumberLabel': true
+    });
+  </script>
   
 
 </body>
