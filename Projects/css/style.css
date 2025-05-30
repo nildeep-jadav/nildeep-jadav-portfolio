@@ -13,7 +13,9 @@ Responsive Image gallery Style rules
     /* padding: 40px 5%; */
   }
    
-  /* Responsive image gallery rules begin*/
+  .p-100 {
+    padding: 100px;
+  }/* Responsive image gallery rules begin*/
   
   .image-gallery {
     display: flex;
