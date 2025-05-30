@@ -3,7 +3,8 @@ const path = require('path');
 
 exports.handler = async function () {
   try {
-    const galleryPath = path.join(process.cwd(), 'public', 'gallery'); // ✅ FIXED
+    const galleryPath = path.join(process.cwd(), 'public', 'gallery');
+    console.log("Gallery Path:", galleryPath); // DEBUG
 
     const folders = fs.readdirSync(galleryPath).filter(name =>
       fs.statSync(path.join(galleryPath, name)).isDirectory()
@@ -14,9 +15,10 @@ exports.handler = async function () {
       body: JSON.stringify(folders)
     };
   } catch (error) {
+    console.error("Function error:", error); // DEBUG
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message })
+      body: JSON.stringify({ error: error.message }) // SHOW ACTUAL ERROR
     };
   }
 };
