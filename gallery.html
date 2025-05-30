@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ 
   <meta charset="UTF-8">
-  <title>Gallery</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" class="style">
+    <link rel="stylesheet" href="/css/style-mobile.css" class="style">
+    <link rel="stylesheet" href="/css/style-tablet.css" class="style">
+    <link rel="stylesheet" href="/css/style-tablet-to-desktop.css" class="style">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Logo/an-pictures-light.svg" id="faviconTag">
+    <title>Gallery | Nildeep Jadav</title>
+
+    <!-- font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  
   <style>
     body { font-family: Arial; margin: 0; padding: 20px; }
     .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
@@ -32,6 +45,37 @@
   </style>
 </head>
 <body>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="col-flex">
+        <div id="nav-wrap" class="row-flex">
+            <div id="left-navbar" class="row-flex">
+                <a href="index.html" rel="noopener noreferrer"><img src="assets/img/Logo/an-pictures-light.svg" alt=""></a>
+                <div class="subtitle-01"><a href="/index.html" rel="noopener noreferrer">Nildeep Jadav</a></div>
+            </div>
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle">
+                <div class='menu-button'></div>
+            </label>
+            <ul id="right-navbar" class="row-flex menu">
+                <li>
+                    <span class="subtitle-01"><a href="#prjt" class="nav-link">Projects</a></span>
+                </li>
+                <li>
+                    <span class="subtitle-01"><a href="https://nildeep-jadav.netlify.app/gallery" class="nav-link">Gallery</a></span>
+                </li>
+                <li>
+                    <span class="subtitle-01"><a href="/assets/pdf/Resume_Nildeep_Jadav_Nov_2024.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">Resume</a></span>
+                </li>
+                <li>
+                    <span class="subtitle-01"><a href="#about-me" class="nav-link">About Me</a></span>
+                </li>
+                <li>
+                    <span class="subtitle-01"><a href="#footer" class="nav-link">Contact Me</a></span>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 <h2>Dynamic Gallery</h2>
 <div class="tabs" id="categoryTabs"></div>
