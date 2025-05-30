@@ -86,24 +86,36 @@
 
 <script>
 async function loadCategories() {
-  const res = await fetch('/api/get_categories');
+  let res;
+  try {
+    // Try Vercel API route first
+    res = await fetch('/api/get_categories');
+    if (!res.ok) throw new Error('Vercel route not found');
+  } catch (e) {
+    // Fallback to Netlify route
+    res = await fetch('/.netlify/functions/get_categories');
+  }
   const categories = await res.json();
   const tabs = document.getElementById('categoryTabs');
 
-  categories.forEach((cat, index) => {
-    const btn = document.createElement('button');
-    btn.textContent = cat.replace(/_/g, ' ');
-    btn.onclick = () => {
-      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      loadImages(cat);
-    };
-    if (index === 0) {
-      btn.classList.add('active');
-      loadImages(cat);
-    }
-    tabs.appendChild(btn);
-  });
+  if (Array.isArray(categories)) {
+    categories.forEach((cat, index) => {
+      const btn = document.createElement('button');
+      btn.textContent = cat.replace(/_/g, ' ');
+      btn.onclick = () => {
+        document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadImages(cat);
+      };
+      if (index === 0) {
+        btn.classList.add('active');
+        loadImages(cat);
+      }
+      tabs.appendChild(btn);
+    });
+  } else {
+    tabs.innerHTML = "<span>No categories found.</span>";
+  }
 }
 
 async function loadImages(category) {
