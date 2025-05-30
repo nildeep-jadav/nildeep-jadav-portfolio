@@ -154,8 +154,8 @@
   
         const link = document.createElement('a');
         link.href = imgPath;
-        link.setAttribute('data-lightbox', category);
-        link.setAttribute('data-title', `Image ${imageIndex} from ${category}`);
+        link.setAttribute('data-lightbox', category); // slideshow group
+        link.setAttribute('data-title', `Image ${imageIndex} from ${category}`); // caption
         link.appendChild(img);
         div.appendChild(link);
         container.appendChild(div);
@@ -167,7 +167,6 @@
       };
   
       img.onerror = () => {
-        // Image doesn't exist, try next
         imageIndex++;
         attempts++;
         tryLoadNext();
@@ -179,6 +178,7 @@
   
   loadCategories();
   </script>
+  
   
 
 </body>
