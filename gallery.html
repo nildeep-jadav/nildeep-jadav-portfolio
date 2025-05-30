@@ -42,7 +42,7 @@ function loadImages(category) {
   container.innerHTML = "";
   for (let i = 1; i <= 20; i++) {
     const img = new Image();
-    img.src = `/gallery/${category}/image${i}.jpg`;
+    img.src = `/gallery/${category}/${i}.jpg`;
     img.onerror = () => img.remove(); // Skip if not found
     container.appendChild(img);
   }
