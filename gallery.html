@@ -25,6 +25,40 @@
     .grid-item img { width: 100%; border-radius: 8px; display: block; cursor: pointer; }
   </style>
 
+  <style>
+    .lightboxOverlay {
+      background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    }
+
+    .lightbox {
+      max-width: 90%;
+      max-height: 90%;
+      padding: 20px;
+      top: 5% !important;
+    }
+
+    .lb-data .lb-close {
+      right: -10px;
+      top: -10px;
+      background: white;
+      color: black;
+      border-radius: 50%;
+      font-size: 24px;
+      padding: 5px 10px;
+    }
+
+    .lb-image {
+      border-radius: 10px;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .lb-nav a.lb-prev, .lb-nav a.lb-next {
+      top: 45%;
+    }
+  </style>
+
+
   <!-- Masonry -->
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <!-- Lightbox2 -->
@@ -121,6 +155,7 @@
         const link = document.createElement('a');
         link.href = imgPath;
         link.setAttribute('data-lightbox', category);
+        link.setAttribute('data-title', `Image ${imageIndex} from ${category}`);
         link.appendChild(img);
         div.appendChild(link);
         container.appendChild(div);
