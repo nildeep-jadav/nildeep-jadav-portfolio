@@ -186,7 +186,7 @@
         return;
       }
   
-      const imgPath = `/gallery/${category}/${imageIndex}.JPG`;
+      const imgPath = `/gallery/${category}/${imageIndex}.jpg`;
       const img = new Image();
       img.src = imgPath;
   
@@ -224,12 +224,28 @@
   
 
   <script>
-    lightbox.option({
-      'resizeDuration': 200,
-      'wrapAround': true,
-      'alwaysShowNavOnTouchDevices': true,
-      'showImageNumberLabel': true
-    });
+
+    if (attempts >= totalImagesToTry) {
+      if (msnry) msnry.destroy();
+      msnry = new Masonry(container, {
+        itemSelector: '.grid-item',
+        gutter: 15,
+      });
+
+      // ✅ Re-initialize Lightbox after dynamic content is added
+      lightbox.init();
+
+      // ✅ Apply options (must come AFTER init)
+      lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'alwaysShowNavOnTouchDevices': true,
+        'showImageNumberLabel': true
+      });
+
+      return;
+    }
+
   </script>
   
 
