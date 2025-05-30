@@ -4,6 +4,10 @@
         width: 85%;
     }
     /* Typography */
+    .p-100 {
+        padding: 50px;
+    }
+
     .headline-01 {
         font-size: 39.67px;
         line-height: calc(39.67px * 1.3);

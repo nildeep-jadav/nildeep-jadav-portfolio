@@ -10,6 +10,10 @@
     .divider {
         width: calc(100% - 48px);
     }
+
+    .p-100 {
+        padding: 30px;
+    }
     /* Typography */
     .headline-01 {
         font-size: 36.6px;
