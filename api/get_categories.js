@@ -1,22 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-exports.handler = async function () {
+export default function handler(req, res) {
   try {
     const galleryPath = path.join(process.cwd(), 'public', 'gallery');
-
     const folders = fs.readdirSync(galleryPath).filter(name =>
       fs.statSync(path.join(galleryPath, name)).isDirectory()
     );
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify(folders)
-    };
+    res.status(200).json(folders);
   } catch (error) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message })  // 👈 important: send real error back
-    };
+    res.status(500).json({ error: error.message });
   }
-};
+}
