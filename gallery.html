@@ -36,6 +36,10 @@
       padding: 20px;
       top: 5% !important;
     }
+    .lb-nav a.lb-prev, .lb-nav a.lb-next {
+      top: 45%;
+    }
+
 
     .lb-data .lb-close {
       right: -10px;
@@ -51,10 +55,6 @@
       border-radius: 10px;
       max-height: 80vh;
       object-fit: contain;
-    }
-
-    .lb-nav a.lb-prev, .lb-nav a.lb-next {
-      top: 45%;
     }
   </style>
 
@@ -154,11 +154,12 @@
   
         const link = document.createElement('a');
         link.href = imgPath;
-        link.setAttribute('data-lightbox', category); // slideshow group
-        link.setAttribute('data-title', `Image ${imageIndex} from ${category}`); // caption
+        link.setAttribute('data-lightbox', category); // same group for each category
+        link.setAttribute('data-title', `Image ${imageIndex} from ${category}`);
         link.appendChild(img);
         div.appendChild(link);
         container.appendChild(div);
+
   
         loadedImages++;
         imageIndex++;
